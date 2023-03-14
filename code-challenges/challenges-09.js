@@ -122,6 +122,22 @@ result.push(x)
 
 const employeesBonus = (arr) => {
     // write your code here
+    let resultArray = [];
+    let addSalary=0;
+    arr.forEach(element => {
+        addSalary = parseInt(element.salary.slice(0, -1));
+        if (element.workHours > 8) {
+            addSalary += 100;
+            element.salary = addSalary + "$";
+        }
+        else {
+            addSalary += 50;
+            element.salary = addSalary + "$";
+        }
+        resultArray.push(element)
+
+    });
+    return resultArray;
 }
 // -------------------------------------------------------------------------------------------------------
 
