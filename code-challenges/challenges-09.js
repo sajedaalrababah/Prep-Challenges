@@ -47,12 +47,13 @@ const arrInc = (arr) => {
 //  [5, 6, 7, 7]
 // 
 const roundDecimals = (arr) => {
+    let result=[];
     // write your code here
     arr.forEach(element => {
-        var x=Math.round(element);
-result.push(x)
+         result.push(Math.round(element));
+      result.push
         
-    });
+    });return result;
 }
 // -------------------------------------------------------------------------------------------------------
 
