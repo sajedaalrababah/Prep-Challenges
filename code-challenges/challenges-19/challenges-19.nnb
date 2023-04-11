@@ -45,7 +45,7 @@
         {
             "language": "javascript",
             "source": [
-                ""
+                "function encryption(s) {\n    \n    s = s.trim().split(/\\s+/g).join('').split('');\n    let length = Math.sqrt(s.length); \n    let rows = Math.floor(length);\n    let columns = Math.ceil(length);\n    let words = new Array();\n    let encrypt = [];\n   if(rows * columns < s.length){\n        rows = columns;\n    }\n    while(words.length < rows){\n        words.push(s.splice(0,columns));\n    }\n    for(let i = 0; i < columns; i++){\n        for(let j = 0; j < rows; j++){\n            encrypt.push(words[j].shift());\n        }\n        encrypt.push(\" \");\n    }\n    return encrypt.join('');\n}"
             ],
             "outputs": []
         },
@@ -59,7 +59,7 @@
         {
             "language": "javascript",
             "source": [
-                ""
+                "function timeInWords(h, m) {\n    let noTowords = {\n        1: \"one\",\n        2: \"two\",\n        3: \"three\",\n        4: \"four\",\n        5: \"five\",\n        6: \"six\",\n        7: \"seven\",\n        8: \"eight\",\n        9: \"nine\",\n        10: \"ten\",\n        11: \"eleven\",\n        12: \"twelve\",\n        13: \"thirteen\",\n        14: \"fourteen\",\n        15: \"fifteen\",\n        16: \"sixteen\",\n        17: \"seventeen\",\n        18: \"eighteen\",\n        19: \"nineteen\",\n        20: \"twenty\",\n        30: \"thirty\",\n        40: \"fourty\",\n        50: \"fifty\",\n        60: \"sixty\",\n    };\n\n    if (m == \"00\") {\n        return `${noTowords[h]} o' clock`;\n    }\n\n    if (m <= 30) {\n        if (m % 15 == 0) {\n            if (m == 15) return `quarter past ${noTowords[h]}`;\n            if (m == 30) return `half past ${noTowords[h]}`;\n        } else {\n            if (m == 1) {\n                return `${noTowords[m]} minute past ${noTowords[h]}`;\n            } else if (m < 20) {\n                return `${noTowords[m]} minutes past ${noTowords[h]}`;\n            } else {\n                return `${noTowords[m - (m % 10)]} ${\n                    noTowords[m % 10]\n                } minutes past ${noTowords[h]}`;\n            }\n        }\n    } else {\n        if (m % 15 == 0) {\n            if (m == 45) return `quarter to ${noTowords[(h % 12) + 1]}`;\n        } else {\n            let x = 60 - m;\n            if (x < 20) {\n                return `${noTowords[x]} minutes to ${noTowords[(h % 12) + 1]}`;\n            } else {\n                return `${noTowords[x - (x % 10)]} ${noTowords[x % 10]} minutes to ${noTowords[(h % 12) + 1]}`;\n            }\n        }\n    }\n}"
             ],
             "outputs": []
         }
